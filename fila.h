@@ -14,8 +14,10 @@ typedef struct {
 
 link novoNo(int item, link next);
 FILA novaFila();
-void inserir(FILA f, int e);
-int remover(FILA f);
+void inserirFinal(FILA f, int e);
+int removerInicio(FILA f);
+void inserirInicio(FILA f, int e);
+int removerFinal(FILA f);
 void imprimirFila(FILA f);
 void destroiFila(FILA f);
 int filaVazia(FILA f); 

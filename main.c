@@ -1,24 +1,25 @@
-#include <stdio.h>
-#include "fila.h"
+#ifndef FILA_H
+#define FILA_H
 
-int main () {
-  FILA alunos = novaFila();
-  inserir(alunos, 9);
-  inserir(alunos, 8);
-  inserir(alunos, 3);
-  inserir(alunos, 10);
+typedef struct node * link;
+struct node {
+  int item;
+  link next;
+};
 
-  imprimirFila(alunos);
+typedef struct {
+  link maisAntigo;
+  link maisNovo;
+} * FILA;
 
-  while(!filaVazia(alunos))
-    printf ("removido: %d \n", remover(alunos));
+link novoNo(int item, link next);
+FILA novaFila();
+void inserirFinal(FILA f, int e);
+int removerInicio(FILA f);
+void inserirInicio(FILA f, int e);
+int removerFinal(FILA f);
+void imprimirFila(FILA f);
+void destroiFila(FILA f);
+int filaVazia(FILA f); 
 
-
-  inserir(alunos, 10);
-  inserir(alunos, 32);
-  
-  imprimirFila(alunos);
-
-  destroiFila(alunos);
-  return 0;
-}
+#endif 
